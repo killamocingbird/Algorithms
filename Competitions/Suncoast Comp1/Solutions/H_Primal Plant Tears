@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class HPrimalPlantTears {
+
+	//Realize that all composite numbers are made up of prime numbers
+	//Therefore technically to check if a number is prime, we just need to test it against all previous primes
+	//This approach then calls for a dynamic programming approach of storing past primes
+	//Because of the pi(x) [pi function] this will decreasing our runtime by a factor of x16
+	
+	//Another approach is to use a prime sieve, however under these constraints, both methods work
+
+	public static final int m = (int)10e9;
+	
+	public static void main(String[] args) {
+		int n = (new Scanner(System.in)).nextInt();
+		if (n == 1 || n == 2) {
+			System.out.println((n == 1) ? 2 : 5);
+		} else {
+			ArrayList<Integer> memoPrimes = new ArrayList<>(n);
+			memoPrimes.add(2);
+			memoPrimes.add(3);
+			int test = 5;
+			long ans = 5;
+look:		while (memoPrimes.size() != n) {
+				
+				//Test for prime using the numbers in memo as potential modulo
+				for (int i = 0; i < memoPrimes.size(); i++) {
+					if (memoPrimes.get(i) > Math.sqrt(test))
+						break;
+					if (test%memoPrimes.get(i) == 0) {
+						test += 2;
+						continue look;
+					}
+				}
+				
+				memoPrimes.add(test);	//Add newly acquired prime to memo
+				ans = (ans + test)%m;
+				test += 2;				//Push our tested number
+			}
+			
+			System.out.println(ans);
+		}
+	}
+	
+}
