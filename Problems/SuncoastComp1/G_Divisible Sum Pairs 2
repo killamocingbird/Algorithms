@@ -1,0 +1,16 @@
+Divisible Sum Pairs 2
+
+#####Problem Statement#####
+Charlie was given an array of $n$ integers, $a_0, a_1,...,a_{n - 1}$, and a positive integer, $k$. Find and print the number of pairs $(i, j)$ where $i < j$ and $a_i + a_j$ is divisible by $k$.
+
+#####Input Format#####
+- The first line contains $2$ space-separated integers, $n$ and $k$, respectively. 
+- The second line contains $n$ space-separated integers describing the respective values of $a_0,a_1,...,a_{n - 1}$
+
+#####Constraints#####
+- $2 \leq n \leq 1,000,000$
+- $1 \leq k \leq 100,000$
+- $1 \leq a_i \leq 1,000,000$
+
+#####Output Format#####
+Print the number of $(i, j)$ pairs where $i<j$ and $a_i + a_j$ is evenly divisible by $k$.
