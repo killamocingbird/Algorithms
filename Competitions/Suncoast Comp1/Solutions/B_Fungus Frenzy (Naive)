@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class BFungusFrenzy {
+	
+	//O(n)
+	
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		double a = in.nextDouble(), b = in.nextDouble(), c = a;
+		
+		if (a >= b) {
+			System.out.println(0);
+		} else if (a == 0) {
+			System.out.println(-1);
+		} else {
+			int ans = 0;
+			for (; a < b; a *= 2) {
+				ans++;
+			}
+			System.out.println(ans);
+		}
+		
+	}
+	
+}
