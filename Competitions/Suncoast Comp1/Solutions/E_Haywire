@@ -45,7 +45,7 @@ public class EHaywire {
 		cur.add(a);
 		grid1[a.x][a.y] = false;
 		int step = 0;
-BFS1:	while (true) {
+BFS1:		while (true) {
 			for (Point e : cur) {
 				if (e.x == b.x && e.y == b.y) {
 					break BFS1;
@@ -75,7 +75,7 @@ BFS1:	while (true) {
 		cur.clear();
 		next.clear();
 		cur.add(b);
-BFS2:	while (true) {
+BFS2:		while (true) {
 			for (Point e : cur) {
 				if (e.x == c.x && e.y == c.y) {
 					break BFS2;
