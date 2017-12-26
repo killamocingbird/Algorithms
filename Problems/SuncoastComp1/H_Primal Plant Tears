@@ -1,0 +1,13 @@
+Primal Plant Tears
+
+#####Problem Statement#####
+Charlie cries everyday. On the first day, Charlie cries 2 tears, on the second day, he cries 3 tears, on the third day he cries 5 tears, and on the Nth day, he cries the Nth prime amount of tears. Find the number of tears Charlie cries in total from the first to the Nth day modulus $10^9 + 7$.
+
+#####Input Format#####
+A single integer, $N$, denoting the last day Charlie cries
+
+#####Constraints#####
+$1 \leq N \leq 1,000,000$
+
+#####Output Format#####
+A single integer that is the sum of the number of tears Charlie cries in the first Nth days modulus $10^9 + 7$.
