@@ -1,0 +1,15 @@
+Longest Contiguous Increasing Subsequence
+
+#####Problem Statement#####
+Charlie was going to the bathroom when unfortunately he forgot his phone. Now he is forced to read the back of his fertilizer bottle. Charlie sees a list of numbers and wants you to find the longest continuous subsequence that is strictly increasing. Note: A sequence can be of length 1.
+
+#####Input Format#####
+- An integer $N$, the number of terms in the sequence
+- $N$ integers, $a_0,a_1,...,a_{n - 1}$, that form the sequence of numbers
+
+#####Constraints#####
+- $1 \leq N \leq 1,000,000$
+- $-1000 \leq a_i \leq 5,000,000$
+
+#####Output Format#####
+- A single integer, signifying the longest strictly increasing continugous subsequence
