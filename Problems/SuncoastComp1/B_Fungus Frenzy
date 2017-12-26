@@ -1,0 +1,15 @@
+Fungus Frenzy
+
+#####Problem Statement#####
+Charlie has a horrible plant fungus that spontaneously doubles in growth at the start of each day. Given how much fungus he has on day 0, $N$, output the first day that his fungus will reach at least $M$. Output -1 if Charlie's fungus will never reach at least $M$.
+
+#####Input Format#####
+- An Integer $N$, the amount of fungus Charlie starts with
+- An Integer $M$, the amount that we must predict will exist
+
+#####Constraints#####
+- $0 \leq N \leq 100$
+- $0 \leq M \leq 10,000,000$
+
+#####Output Format#####
+Either a single non-negative integer indicating the day that the fungus will be at least $M$, or -1 if Charlie's fungus will never reach $M$.
