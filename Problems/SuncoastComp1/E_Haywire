@@ -1,0 +1,16 @@
+Haywire
+
+#####Problem Statement#####
+Charlie woke up hungover from doing long division. He woke up in a hayfield but could not find his plant. Luckily, someone sketched a map of the field he is in, including the location of his plant, and the garden that he lives in. Given the field of hay, the location of where Charlie woke up (denoted as $C$), the location of the plant (denoted as $P$), and the garden (denoted as $G$), output the minimum amount of moves to get the plant and then go to the garden.
+
+All hayfields will have an outerboundry.
+
+#####Input Format#####
+- Two integers, $N$ and $M$ specifying the length and width of the field
+- $N$ lines of $M$ characters each.
+
+#####Constraints#####
+- $4 \leq N, M \leq 100$
+
+#####Output Format#####
+A single integer, denoting the minimum amount of spaces Charlie must move to pick up his plant, and go to the garden.
