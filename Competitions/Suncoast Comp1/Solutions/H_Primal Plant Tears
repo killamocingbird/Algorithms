@@ -22,7 +22,8 @@ public class HPrimalPlantTears {
 			memoPrimes.add(3);
 			int test = 5;
 			long ans = 5;
-look:		while (memoPrimes.size() != n) {
+			
+look:			while (memoPrimes.size() != n) {
 				
 				//Test for prime using the numbers in memo as potential modulo
 				for (int i = 0; i < memoPrimes.size(); i++) {
@@ -35,8 +36,8 @@ look:		while (memoPrimes.size() != n) {
 				}
 				
 				memoPrimes.add(test);	//Add newly acquired prime to memo
-				ans = (ans + test)%m;
-				test += 2;				//Push our tested number
+				ans = (ans + test)%m;	//Accumulate newly discovered prime
+				test += 2;		//Push our tested number
 			}
 			
 			System.out.println(ans);
