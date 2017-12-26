@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class DLongestContinguousIncreasingSequence {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
+		int ans = 0;
+		int hold = 1;
+		int last = in.nextInt();
+		for (int i = 1; i < n; i++) {
+			int t = in.nextInt();
+			if (last < t) {
+				hold++;
+			} else {
+				ans = Math.max(ans, hold);
+				hold = 1;
+			}
+			last = t;
+		}
+		System.out.println(Math.max(ans, hold));
+	}
+	
+}
