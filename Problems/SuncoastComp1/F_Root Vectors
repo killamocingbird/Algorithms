@@ -1,0 +1,14 @@
+Root Vectors
+
+#####Problem Statement#####
+Charlie was screwing around is Mr. Laufer's room and set off a perpetual motion machine that generated a force of an unknown amount of energy. Charlie wanting to save an object that's getting pushed by the machine's force, applies a second force to the object pulling it downwards. What results are two vectors, one pushing to the right, and one pushing downward. Given a chart of obsticals in Laufer's room, determined the number of ways that Charlie can successfully pull the object into the lower right corner of the graph. Note, the object can only ever travel in vertical and horizontal directions. Diagonal moves are not allowed. Output your answer modulus $10^9 + 7$
+
+#####Input Format#####
+- Two seperate integers, $N$ and $M$ describing the height and width of the graph
+- $N$ lines of length $M$ describing any obsticals in Laufer's room. All obsticals are labeled with a "#", while passable spaces are labeled with a "."
+
+#####Constraints#####
+- $2 \leq N, M \leq 10,000$
+
+#####Output Format#####
+- A single integer, the number of ways to get from the top left to the bottom right corner modulus $10^9 + 7$.
