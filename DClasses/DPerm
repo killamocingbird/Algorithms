@@ -1,7 +1,7 @@
 /**
-* Permutation Generator in Java utilizing base factorial for optimal generation
-* @author Justin Wang
-*/
+ * Permutation Generator in Java utilizing base factorial for optimal generation
+ * @author Justin Wang
+ */
 
 
 import java.util.ArrayList;
