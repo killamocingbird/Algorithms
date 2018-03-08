@@ -1,3 +1,8 @@
+
+/**
+ * Implementation of a Disjoin Union Set that is optimized with a flattening and ranking system.
+ */
+
 import java.util.Arrays;
 
 public class DSet {
