@@ -1,0 +1,73 @@
+import java.util.Scanner;
+import java.util.Stack;
+
+public class MaxFlow {
+
+	public static class mPoint {
+		public int id, min;
+		public mPoint(int a, int b) {
+			id = a; min = b;
+		}
+	}
+	
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		//n nodes, and m edges
+		int n = in.nextInt(), m = in.nextInt();
+		int[][] grid = new int[n][n];
+		for (int i = 0; i < m; i++) {
+			//Constructs edges assuming 0 index
+			//In the case of duplicate edges, add total flow capacity
+			grid[in.nextInt()][in.nextInt()] += in.nextInt();
+		}
+		//Initial flow is set to 0
+		int maxFlow = 0;
+		//Define source and sink node
+		int sourceID = 0, sinkID = n - 1;
+		while (true) {
+			//DFS
+			Stack<mPoint> st = new Stack<>();
+			st.add(new mPoint(0, Integer.MAX_VALUE));
+			boolean[] vis = new boolean[n];
+			boolean hasPath = false;
+			while (!st.isEmpty()) {
+				mPoint cur = st.peek();
+				vis[cur.id] = true;
+				if (cur.id == sinkID) {
+					hasPath = true;
+					break;
+				}
+				boolean hasValidNeighbor = false;
+				for (int i = 0; i < grid[cur.id].length; i++) {
+					if (!vis[i] && grid[cur.id][i] != 0) {
+						//If there exists a non-negative unvisited neighbor
+						//DFS from that node and store the minimum
+						hasValidNeighbor = true;
+						st.push(new mPoint(i, Math.min(cur.min, grid[cur.id][i])));
+						break;
+					}
+				}
+				if (!hasValidNeighbor) {
+					//If there was no valid neighbor, pop and recurse backwards
+					st.pop();
+				}
+			}
+			if (hasPath) {
+				//Augment the path
+				mPoint cur = st.pop();
+				int min = cur.min;
+				while (!st.isEmpty()) {
+					grid[st.peek().id][cur.id] -= min;
+					grid[cur.id][st.peek().id] += min;
+					cur = st.pop();
+				}
+				//Add bottleneck flow to the final answer
+				maxFlow += min;
+			} else {
+				break;
+			}
+		}
+		System.out.println(maxFlow);
+	}
+	
+}
