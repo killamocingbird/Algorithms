@@ -1,0 +1,70 @@
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+import java.util.Scanner;
+
+public class DijkstrasAlgoPQ {
+
+	public static class mPoint implements Comparable<mPoint> {
+		public int con, dis;
+
+		public mPoint(int a, int b) {
+			con = a;
+			dis = b;
+		}
+
+		public int compareTo(mPoint p) {
+			return (dis == p.dis) ? (con - p.con) : dis - p.dis;
+		}
+	}
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt(), m = in.nextInt();
+
+		ArrayList<mPoint>[] grid = new ArrayList[n];
+		for (int i = 0; i < n; i++) {
+			grid[i] = new ArrayList<>();
+		}
+		for (int i = 0; i < m; i++) {
+			int a = in.nextInt() - 1, b = in.nextInt() - 1, d = in.nextInt();
+			grid[a].add(new mPoint(b, d));
+			grid[b].add(new mPoint(a, d));
+		}
+
+		int start = in.nextInt() - 1;
+
+		// Start Algo
+
+		mPoint[] dis = new mPoint[n];
+		for (int i = 0; i < n; i++) {
+			dis[i] = new mPoint(i, Integer.MAX_VALUE);
+		}
+		dis[start].dis = 0;
+		boolean[] vis = new boolean[n];
+		PriorityQueue<mPoint> pq = new PriorityQueue<>();
+		pq.add(dis[start]);
+		while (true) {
+			int cur = pq.poll().con;
+			// Optional terminating clause
+			// if (cur == goal) break;
+			vis[cur] = true;
+
+			for (mPoint p : grid[cur]) {
+				if (!vis[p.con] && dis[cur].dis + p.dis < dis[p.con].dis) {
+					dis[p.con].dis = dis[cur].dis + p.dis;
+					pq.add(dis[p.con]);
+				}
+			}
+
+			if (pq.isEmpty()) {
+				break;
+			}
+		}
+
+		for (int i = 0; i < n; i++) {
+			System.out.print((i != start) ? dis[i].dis + " " : "");
+		}
+		System.out.println();
+
+	}
+}
