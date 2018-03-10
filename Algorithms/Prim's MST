@@ -1,0 +1,60 @@
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+import java.util.Scanner;
+
+public class MST {
+
+	public static class mPoint implements Comparable<mPoint> {
+		public int con, dis;
+		public mPoint(int a, int b) {
+			con = a; dis = b;
+		}
+		
+		public int compareTo(mPoint p) {
+			return (dis == p.dis) ? con - p.con : dis - p.dis;
+		}
+	}
+	
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt(), m = in.nextInt();
+		//Bidirectional Adjacency List
+		ArrayList<mPoint>[] grid = new ArrayList[n];
+		for (int i = 0; i < n; i++) {grid[i] = new ArrayList<>();}
+		for (int i = 0; i < m; i++) {
+			int a = in.nextInt() - 1, b = in.nextInt() - 1, d = in.nextInt();
+			grid[a].add(new mPoint(b, d)); grid[b].add(new mPoint(a, d));
+		}
+		
+		boolean[] vis = new boolean[n];
+		mPoint[] dis = new mPoint[n];
+		
+		int cur = 0;
+		for (int i = 0; i < n; i++) {
+			dis[i] = new mPoint(i, (i == cur) ? 0 : Integer.MAX_VALUE);
+		}
+		PriorityQueue<mPoint> pq = new PriorityQueue<>();
+		
+		int ans = 0;
+		while (true) {
+			vis[cur] = true;
+			ans += dis[cur].dis;
+			for (mPoint p : grid[cur]) {
+				if (!vis[p.con] && p.dis < dis[p.con].dis) {
+					dis[p.con].dis = p.dis;
+					pq.remove(dis[p.con]);
+					pq.add(dis[p.con]);
+				}
+			}
+			if (pq.isEmpty()) {
+				break;
+			}
+			cur = pq.poll().con;
+			
+		}
+		
+		System.out.println(ans);
+		
+	}
+	
+}
