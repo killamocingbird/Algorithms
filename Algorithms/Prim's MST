@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class MST {
 
 	public static class mPoint implements Comparable<mPoint> {
-		public int con, dis;
+		public int con, dis; //connection to a point and the distance of it
 		public mPoint(int a, int b) {
 			con = a; dis = b;
 		}
