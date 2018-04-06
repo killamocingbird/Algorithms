@@ -24,6 +24,7 @@ public class DSet {
     public DSet(int n) {
         groups = n;
         parents = new int[n];
+        size = new int[n];
         Arrays.fill(parents, -1 );
         Arrays.fill(size, 1);
         rank = new int[n];
