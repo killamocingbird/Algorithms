@@ -1,0 +1,63 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class GridBFS {
+
+    public static class mPoint {
+        public int x, y;
+        public mPoint(int a, int b) {
+            x = a;
+            y = b;
+        }
+    }
+
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt(), m = in.nextInt();
+        in.nextLine();
+        boolean[][] grid = new boolean[n + 2][m + 2];
+        mPoint source, sink = null;
+        for (int i = 1; i <= n; i++) {
+            char[] s = in.nextLine().trim().toCharArray();
+            for (int j = 1 ; j <= m; j++) {
+                if (s[i] == '.') {
+                    grid[i][j] = true;
+                } else if (s[i] == 'S') {
+                    source = new mPoint(i, j);
+                } else if (s[i] == 'E') {
+                    sink = new mPoint(i, j);
+                }
+            }
+        }
+
+        ArrayList<mPoint> cur = new ArrayList<>();
+        ArrayList<mPoint> next = new ArrayList<>();
+        int step = 0;
+        bfs: while (!cur.isEmpty()) {
+            for (mPoint p : cur) {
+                if (p.x == sink.x && p.y == sink.y) {
+                    break bfs;
+                }
+                bfs(grid, p, next, 1, 0);
+                bfs(grid, p, next, -1, 0);
+                bfs(grid, p, next, 0, 1);
+                bfs(grid, p, next, 0, -1);
+            }
+            step++;
+            cur.clear();
+            cur.addAll(next);
+            next.clear();
+        }
+        System.out.println(step);
+    }
+
+    public static void bfs(boolean[][] grid, mPoint p, ArrayList<mPoint> next, int a, int b) {
+        //Condition
+        if (grid[p.x + a][p.y + b]) {
+            grid[p.x + a][p.y + b] = false;
+            next.add(new mPoint(p.x + a, p.y + b));
+        }
+    }
+
+}
