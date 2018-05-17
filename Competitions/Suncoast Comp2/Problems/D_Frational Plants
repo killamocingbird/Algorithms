@@ -1,0 +1,16 @@
+Frational Plants
+
+#####Problem Statement#####
+Charlie sucks at math and needs you to check his homework. Today he is working on trying to reduce fractions and you need to help determine if he has reduced a fraction fully. Given N, the number of problems Charlie needs checked, output the number of problems he has to correct. If he did not make any mistakes tell him "Goodjob!"
+
+#####Input Format#####
+- A single integer N  denoting the number of problems to check
+- N lines containing two integers, p and q denoting the fraction p/q
+Note: p/1 counts as fully reduced.
+
+#####Constraints#####
+- 0 < N < 100
+- 0 < p,q < 15,000,000
+
+#####Output Format#####
+If Charlie reduced all the fractions fully print out "Goodjob!" otherwise print out a single integer denoting the number of problems Charlie got wrong.
