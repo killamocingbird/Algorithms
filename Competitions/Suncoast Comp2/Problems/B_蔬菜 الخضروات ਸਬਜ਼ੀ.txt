@@ -1,0 +1,16 @@
+蔬菜 الخضروات ਸਬਜ਼ੀ
+
+#####Problem Statement#####
+In order to blend in with society Charlie has started an ironic vegatable shop. Somehow he was actually successful and has attracted a lot of business. There's a catch though, Charlie wanting to save money bought the property near a very ethnic area so there are customers of all different kinds of cultures that may not speak english. Charlie decided that he should hire an assistant who can speak a different language. Given a log of the languages customers who come in speak, output the frequency of each language sorted in decreasing order. If the frequency of two different languages is equal, output them sorted by increasing alphabetical order.
+
+#####Input Format#####
+- A single integer N denoting the number of customers on the customer log
+- N lines with each line containing the language of the Nth customer
+
+#####Constraints######
+- 0 < N < 5000
+- All languages are in lowercase and contain no more than 10 letters
+
+#####Output Format#####
+- [Language]: [frequency]
+- 1 Line for each language, sorted in decreasing numeric order. If equal sort in ascending alphabetical order
