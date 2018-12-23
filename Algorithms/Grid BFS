@@ -17,7 +17,8 @@ public class GridBFS {
         int n = in.nextInt(), m = in.nextInt();
         in.nextLine();
         boolean[][] grid = new boolean[n + 2][m + 2];
-        mPoint source, sink = null;
+        mPoint source = null;
+        mPoint sink = null;
         for (int i = 1; i <= n; i++) {
             char[] s = in.nextLine().trim().toCharArray();
             for (int j = 1 ; j <= m; j++) {
@@ -34,6 +35,7 @@ public class GridBFS {
         ArrayList<mPoint> cur = new ArrayList<>();
         ArrayList<mPoint> next = new ArrayList<>();
         int step = 0;
+        cur.add(source);
         bfs: while (!cur.isEmpty()) {
             for (mPoint p : cur) {
                 if (p.x == sink.x && p.y == sink.y) {
