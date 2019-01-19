@@ -1,6 +1,6 @@
 
 /**
- * Implementation of a Disjoin Union Set that is optimized with a flattening and ranking system.
+ * Implementation of a Disjoint Union Set that is optimized with a flattening and ranking system.
  */
 
 import java.util.Arrays;
@@ -25,7 +25,7 @@ public class DSet {
         groups = n;
         parents = new int[n];
         size = new int[n];
-        Arrays.fill(parents, -1 );
+        Arrays.fill(parents, -1);
         Arrays.fill(size, 1);
         rank = new int[n];
     }
