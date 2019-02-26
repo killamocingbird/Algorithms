@@ -22,11 +22,11 @@ public class GridBFS {
         for (int i = 1; i <= n; i++) {
             char[] s = in.nextLine().trim().toCharArray();
             for (int j = 1 ; j <= m; j++) {
-                if (s[i] == '.') {
+                if (s[j] == '.') {
                     grid[i][j] = true;
-                } else if (s[i] == 'S') {
+                } else if (s[j] == 'S') {
                     source = new mPoint(i, j);
-                } else if (s[i] == 'E') {
+                } else if (s[j] == 'E') {
                     sink = new mPoint(i, j);
                 }
             }
