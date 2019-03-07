@@ -2,8 +2,9 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
+// Find shortest path from single source. Positively weighted graphs only.
 public class DijkstrasAlgoPQ {
-
+	
 	public static class mPoint implements Comparable<mPoint> {
 		public int con, dis;
 
