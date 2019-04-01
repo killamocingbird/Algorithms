@@ -6,29 +6,30 @@ public class GridBFS {
     public static class mPoint {
         public int x, y;
         public mPoint(int a, int b) {
-            x = a;
-            y = b;
+            this.x = a;
+            this.y = b;
+        }
+        public String toString() {
+        	return "(" + this.x + " " + this.y + ")";
         }
     }
-
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt(), m = in.nextInt();
-        in.nextLine();
         boolean[][] grid = new boolean[n + 2][m + 2];
         mPoint source = null;
         mPoint sink = null;
         for (int i = 1; i <= n; i++) {
             char[] s = in.nextLine().trim().toCharArray();
             for (int j = 1 ; j <= m; j++) {
-                if (s[j] == '.') {
+                if (s[j - 1] == '.') {
                     grid[i][j] = true;
-                } else if (s[j] == 'S') {
+                } else if (s[j - 1] == 'S') {
                     source = new mPoint(i, j);
-                } else if (s[j] == 'E') {
+                } else if (s[j - 1] == 'E') {
+                	grid[i][j] = true;
                     sink = new mPoint(i, j);
-                    grid[i][j] == true;
                 }
             }
         }
@@ -38,6 +39,7 @@ public class GridBFS {
         int step = 0;
         cur.add(source);
         bfs: while (!cur.isEmpty()) {
+//        	System.out.println(cur);
             for (mPoint p : cur) {
                 if (p.x == sink.x && p.y == sink.y) {
                     break bfs;
@@ -52,15 +54,15 @@ public class GridBFS {
             cur.addAll(next);
             next.clear();
         }
-        System.out.println(step);
+        System.out.println(step - 1);
     }
 
     public static void bfs(boolean[][] grid, mPoint p, ArrayList<mPoint> next, int a, int b) {
         //Condition
-        if (grid[p.x + a][p.y + b]) {
+    	if (grid[p.x + a][p.y + b]) {
             grid[p.x + a][p.y + b] = false;
             next.add(new mPoint(p.x + a, p.y + b));
-        }
+    	}
     }
 
 }
