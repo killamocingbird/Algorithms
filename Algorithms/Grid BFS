@@ -28,6 +28,7 @@ public class GridBFS {
                     source = new mPoint(i, j);
                 } else if (s[j] == 'E') {
                     sink = new mPoint(i, j);
+                    grid[i][j] == true;
                 }
             }
         }
